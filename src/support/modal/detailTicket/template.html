@@ -1,0 +1,112 @@
+<div class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <div class="row">
+      <div class="input-field">
+        <i class="prefix fas fa-ticket-alt"></i>
+        <input id="detalleticketId_tarea" type="text" ng-model="dt.selectedTicket.id" ng-value="dt.selectedTicket.id" disabled="disabled">
+        <label for="detalleticketId_tarea" ng-class="(dt.selectedTicket.id != '') ? 'active' : ''">Nº Solicitud</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <i class="prefix fas fa-calendar-plus"></i>
+        <input id="detalleticketTimestamp_ingreso" type="text" ng-value="dt.selectedTicket.opened_the" disabled="disabled">
+        <label for="detalleticketTimestamp_ingreso" ng-class="(dt.selectedTicket.opened_the != '') ? 'active' : ''">Fecha de Ingreso</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <i class="prefix fas fa-building"></i>
+        <input id="detalleticketNom_cliente" type="text" ng-model="dt.selectedTicket.client_name" ng-value="dt.selectedTicket.client_name" disabled="disabled">
+        <label for="detalleticketNom_cliente" ng-class="dt.selectedTicket.client_name ? 'active' : ''">Nombre del Cliente</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <i class="prefix fas fa-user"></i>
+        <input id="detalleticketNom_solicitante" type="text" ng-model="dt.selectedTicket.name" ng-value="dt.selectedTicket.name" disabled="disabled">
+        <label for="detalleticketNom_solicitante" ng-class="(dt.selectedTicket.name != '') ? 'active' : ''">Nombre del Solicitante</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <i class="prefix fas fa-envelope"></i>
+        <input id="detalleticketEmail_solicitante" type="text" ng-model="dt.selectedTicket.email" ng-value="dt.selectedTicket.email" disabled="disabled">
+        <label for="detalleticketEmail_solicitante" ng-class="(dt.selectedTicket.email != '') ? 'active' : ''">E-mail del Solicitante</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <i class="prefix fas fa-globe"></i>
+        <input id="detalleticketIp_solicitante" type="text" ng-model="dt.selectedTicket.ip" ng-value="dt.selectedTicket.ip" disabled="disabled">
+        <label for="detalleticketIp_solicitante" ng-class="(dt.selectedTicket.ip != '') ? 'active' : ''">Ip del Solicitante</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <i class="prefix fas fa-file-alt"></i>
+        <textarea id="detalleticketDesc_tarea" type="text" ng-model="dt.selectedTicket.description" ng-value="dt.selectedTicket.description" class="materialize-textarea" disabled="disabled"></textarea>
+        <label for="detalleticketDesc_tarea" ng-class="(dt.selectedTicket.description != '') ? 'active' : ''">Descripción de la Solicitud</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <i class="prefix fas fa-cog"></i>
+        <input id="detalleticketTipo" type="text" ng-model="dt.selectedTicket.type" ng-value="dt.selectedTicket.type" disabled="disabled">
+        <label for="detalleticketTipo" ng-class="(dt.selectedTicket.type != '') ? 'active' : ''">Tipo de Solicitud</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <i class="prefix fas fa-clock" ng-class="dt.disabled ? '':'highlighter'"></i>
+        <input id="detalleticketCant_horas" type="number" step="0.05" min="0" max="100" ng-model="dt.selectedTicket.time_amount" ng-value="dt.selectedTicket.time_amount" ng-disabled="dt.disabled" string-to-number>
+        <label for="detalleticketCant_horas" ng-class="(dt.selectedTicket.amount <= 100) ? 'active' : ''">Horas</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <i class="prefix fas fa-percent" ng-class="dt.disabled ? '':'highlighter'"></i>
+        <input id="detalleticketPorcentaje_avance" type="number" step="5" min="0" max="100" ng-model="dt.selectedTicket.progress" ng-value="dt.selectedTicket.progress" ng-disabled="dt.disabled" string-to-number>
+        <label for="detalleticketPorcentaje_avance" ng-class="(dt.selectedTicket.progress <= 100) ? 'active' : ''">Avance</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <i class="prefix fas fa-user-md" ng-class="dt.disabled ? '':'highlighter'"></i>
+        <label for="detalleticketSelect_ejecutor1" ng-class="(dt.selectedTicket.operator_id != '') ? 'active' : ''">Ejecutor 1</label>
+        <select id="detalleticketSelect_ejecutor1" ng-model="dt.selectedTicket.operator_id" ng-disabled="dt.disabled" material-select watch ng-options="operator.id as operator.name for operator in dt.operators"></select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <i class="prefix fas fa-sort" ng-class="dt.disabled ? '':'highlighter'"></i>
+        <label for="detalleticketSelect_prioridadtarea" ng-class="(dt.selectedTicket.priority != '') ? 'active' : ''">Prioridad</label>
+        <select id="detalleticketSelect_prioridadtarea" ng-model="dt.selectedTicket.priority" ng-disabled="dt.disabled" material-select>
+          <option value="0" ng-selected="dt.selectedTicket.priority == 0">Baja</option>
+          <option value="1" ng-selected="dt.selectedTicket.priority == 1">Normal</option>
+          <option value="2" ng-selected="dt.selectedTicket.priority == 2">Urgente</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <i class="prefix fas fa-calendar-check" ng-class="dt.disabled ? '':'highlighter'"></i>
+        <input id="detalleticketFec_ejecucion" type="text" class="datepicker" ng-model="dt.selectedTicket.closed_on" value="{{dt.selectedTicket.closed_on ? (dt.selectedTicket.closed_on):'Ingresar una fecha'}}" ng-disabled="dt.disabled">
+        <label for="detalleticketFec_ejecucion" ng-class="(dt.selectedTicket.closed_on != '') ? 'active' : ''">Fecha de Ejecución</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <i class="prefix fas fa-file-alt" ng-class="dt.disabled ? '':'highlighter'"></i>
+        <textarea id="detalleticketObs_operador" type="text" ng-model="dt.selectedTicket.comments" ng-value="dt.selectedTicket.comments" class="materialize-textarea" ng-disabled="dt.disabled"></textarea>
+        <label for="detalleticketObs_operador" ng-class="(dt.selectedTicket.comments != '') ? 'active' : ''">Observación del Operador</label>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="fixed-action-btn">
+      <button class="btn-floating btn-large waves-effect waves-light" ng-click="dt.leftButton()" ng-class="dt.disabled ? 'blue':'green'"><i ng-class="dt.disabled ? 'fas fa-pencil-alt':'fas fa-save'"></i></button>
+      <button class="btn-floating btn-large waves-effect waves-light red" ng-click="dt.rightButton()"><i ng-class="dt.disabled ? 'fas fa-eject':'fas fa-undo'"></i></button>
+    </div>
+  </div>
+</div>

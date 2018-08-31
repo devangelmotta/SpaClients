@@ -1,0 +1,5 @@
+<div class="input-field">
+	<i ng-if="prefix == true" class="prefix {{icon}}"></i>
+	<input ng-attr-id="{{randomId}}" ng-attr-type="{{type}}" ng-model="target" ng-disabled="disabled == 'true' && 'disabled'">
+	<label ng-attr-for="{{randomId}}" ng-class="(target != '') ? 'active' : ''">{{title}}</label>
+</div>

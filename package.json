@@ -1,0 +1,36 @@
+{
+  "name": "support",
+  "version": "0.1.0",
+  "description": "",
+  "main": "gruntfile.js",
+  "dependencies": {
+    "grunt": "^1.0.2",
+    "grunt-ng-constant": "^2.0.1"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.2",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-uglify": "^3.3.0",
+    "grunt-gitinfo": "^0.1.8",
+    "grunt-ng-constant": "^2.0.1",
+    "grunt-php-config": "^0.1.6",
+    "grunt-php-constants": "^0.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrXploder/appMixtura.git"
+  },
+  "author": "MrXploder",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MrXploder/appMixtura/issues"
+  },
+  "homepage": "https://github.com/MrXploder/appMixtura#readme",
+  "debug": {
+    "mode": "development"
+  }
+}

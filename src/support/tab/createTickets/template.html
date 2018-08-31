@@ -1,0 +1,72 @@
+<div class="collapsible-header red" >
+  <i class="fas fa-ticket-alt"></i>Crear Ticket
+</div>
+<div class="collapsible-body">
+  <div class="container">
+    <ng-form name="ct_form"> 
+      <div class="row"><h5 class="underlined">Rellena con tus datos personales</h5></div>
+      <div class="row"> 
+        <div class="input-field">
+          <label for="newticketSelectCliente" ng-class="(ct.newTicket.client_id != '') ? 'active' : ''">Nombre del Cliente</label>
+          <select id="newticketSelectCliente" class="validate" ng-model="ct.newTicket.client_id" ng-options="client.id as client.name for client in ct.clients" required material-select watch></select>
+        </div>
+      </div>
+      <div class="row"> 
+        <div class="input-field">
+          <label for="newticketSelectPrioridad" ng-class="(ct.newTicket.priority != '') ? 'active' : ''">Prioridad</label>
+          <select id="newticketSelectPrioridad" class="validate" ng-model="ct.newTicket.priority" required material-select>
+            <option value="0">Baja</option>
+            <option value="1">Normal</option>
+            <option value="2">Alta</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col l6 s12">
+          <div class="input-field">
+            <input id="newticketNombre" class="validate" ng-model="ct.newTicket.name" type="text" required="required" placeholder="Escribe aqui tu nombre y apellido">
+            <label for="newticketNombre" ng-class="'active'">Tu Nombre</label>
+          </div>
+        </div>
+        <div class="col l6 s12">
+          <div class="input-field">
+            <input id="newticketEmail" class="validate" ng-model="ct.newTicket.email" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" required="required" placeholder="Escribe aqui tu correo de empresa">
+            <label for="newticketEmail" ng-class="'active'">Tu Email</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field">
+          <textarea id="newticketTextArea" ng-model="ct.newTicket.description" class="materialize-textarea validate" required="required" placeholder="Escribe aqui lo que necesitas que resolvamos por ti"></textarea>
+          <label for="newticketTextArea" ng-class="'active'">Tu Solicitud</label>
+        </div>
+      </div>
+      <div class="row"><h5 class="underlined">Elige el tipo de Solicitud que mas se asemeje a tu problema</h5></div>
+      <div class="row">
+        <input id="newticketRadioSistema" ng-model="ct.newTicket.type" type="radio" required="required" value="SISTEMA"/>
+        <label for="newticketRadioSistema" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Sistema operativo, programas, etc.">SISTEMA</label>
+      </div>
+      <div class="row">
+        <input id="newticketRadioTecnica" ng-model="ct.newTicket.type"  type="radio" required="required" value="TECNICA"/>
+        <label for="newticketRadioTecnica" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Mouse, teclado, piezas fisicas, desconexion intermitente, etc">TECNICA</label>
+      </div>
+      <div class="row">
+        <input id="newticketRadioSantiago" ng-model="ct.newTicket.type"  type="radio" required="required" value="SANTIAGO"/>
+        <label for="newticketRadioSantiago" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Especifico para Santiago">SANTIAGO</label>
+      </div>
+      <div class="row">
+        <input id="newticketRadioOtro" ng-model="ct.newTicket.type"  type="radio" required="required" value="OTRO"/>
+        <label for="newticketRadioOtro" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Si no sabe, eliga esta opción.">OTRO</label>
+      </div>
+      <div class="divider"></div>
+      <div class="row">
+        <div class="col l5 s6">
+          <button class="btn waves-effect waves-light green" type="submit" ng-disabled="ct_form.$invalid" ng-click="ct.saveTicket()">Enviar<i class="fas fa-share right"></i></button>
+        </div>
+        <div class="col l5 offset-l2 s6">
+          <button class="btn waves-effect waves-light red" type="reset" ng-disabled="!ct.newTicket" ng-click="ct.newTicket = {}">Reset<i class="fas fa-eraser right"></i></button>
+        </div>
+      </div>
+    </ng-form>
+  </div>
+</div>
